@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/st1.css">
+</head>
+<body>
+<div id="header"></div>
+<div id="navigater"></div>
+<div id="content">
+    <div id="pic">
+        <table width=450 border=1>
+            <tr>
+                <td colspan=2 align=center>
+                    <div th:text="${session.M.name}" />
+                   訂單數量:<span th:text="${session.L.size()}"></span>
+                   <p>Total Price: <span th:text="${totalPrice}"></span></p>
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>C</th>
+                                <th>價格</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="order : ${session.L}">
+                                <td th:text="${order.A}" />
+                                <td th:text="${order.B}" />
+                                <td th:text="${order.C}" />
+                                <!-- 計算每筆訂單的價格：數量 * 單價 -->
+                                <td th:text="${order.A * 100 + order.B * 120 + order.C * 150}" />
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2 align=center>
+                    <a href="/porder/porder">回上一頁</a>
+                    <a href="/porder/finish">確認</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="title"></div>
+    <div id="content"></div>
+    <div id="footer"></div>
+    <script type="text/javascript">
+        $.ajax({
+            type: "get",
+            url: "http://192.168.1.105:8080/porder/Nrecord",
+            success: function(data) {
+                console.log(data); // 在控制台輸出返回的 JSON 數據，檢查是否包含預期的屬性
+                var x = "";
+
+                for (var i = 0; i < data.length; i++) {
+                    x = x + "id:" + data[i].id + "<br>" +
+                        "name:" + data[i].name + "<br>" +
+                        "a:" + data[i].a + "<br>" +
+                        "b:" + data[i].b + "<br>" +
+                        "c:" + data[i].c + "<br><hr><br>";
+                }
+
+                $("#content").html(x);
+            }
+        });
+    </script>
+</body>
+</html>

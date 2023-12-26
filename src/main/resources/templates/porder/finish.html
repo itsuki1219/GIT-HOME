@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/st1.css">
+</head>
+<body>
+<div id="header"></div>
+<div id="navigater"></div>
+<div id="content">
+	<div id="pic">
+		<table width=450 border=1>
+			<tr>
+				<td colspan=2 align=center>
+				<div th:text="${session.M.name}"/>
+				訂購完成,這是你購買的細目
+			
+			<tr>
+				<td width=100>品名
+				<td >數量
+			<tr>
+				<td width=100>A商品(100元)
+				<td th:text="${session.P.a}">
+			<tr>
+				<td width=100>B商品(120元)
+				<td th:text="${session.P.b}">
+			<tr>
+				<td width=100>C商品(150元)
+				<td th:text="${session.P.c}">
+			<tr>
+				<td width=100>金額共
+				<td th:text=
+				"${session.P.a}*100+
+				${session.P.b}*120+
+				${session.P.c}*150">
+			<tr>
+				<td colspan=2 align=center>
+				<a href="/porder/porder">繼續購物</a>
+				<a href="/index.html">登出</a>
+		</table>
+	</div>
+
+</div>
+<div id="footer"></div>
+</body>
+</html>

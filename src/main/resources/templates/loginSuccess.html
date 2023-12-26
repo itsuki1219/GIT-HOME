@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/st1.css"
+</head>
+<body>
+<div id="header"></div>
+<div id="navigater"></div>
+<div id="content">
+	<div >
+		<table id="contentArea">
+			<tr>
+				<td style="font-size:25pt">登入成功
+			<tr>
+				<td style="font-size:25pt" th:text="${session.M.name}">	
+			<tr>
+				<td><a href="/Npassword">改密碼</a>
+			<tr>	
+				<td><a href="/Ndelete">刪除帳號</a><br>
+			<tr>
+				<td><a href="/porder/porder">購物</a>
+			<tr>
+				<td><a href="/porder/Nrecord">購買紀錄</a>
+		</table>	
+	</div>
+</div>	
+<div id="footer"></div>
+</body>
+</html>

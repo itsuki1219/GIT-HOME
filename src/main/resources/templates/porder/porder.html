@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/st1.css">
+    <script>
+        function validateForm() {
+            var inputA = document.getElementsByName("a")[0].value;
+            var inputB = document.getElementsByName("b")[0].value;
+            var inputC = document.getElementsByName("c")[0].value;
+
+            // 檢查是否三個輸入欄位都為零
+            if (inputA === "0" && inputB === "0" && inputC === "0") {
+                alert("請至少購買一項商品");
+                return false; // 阻止表單提交
+            }
+
+            return true; // 允許表單提交
+        }
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="navigater"></div>
+    <div id="content">
+        <div id="pic">    
+            <form action="/porder/add" method="post" onsubmit="return validateForm()">
+                <table width=450 border=1>
+                    <tr height=20>
+                        <td colspan=3 align=center>
+                            <h3><p th:text="${session.M.name}"></p></h3>
+                        </td>
+                    </tr>
+                    <tr height=150>
+                        <td>
+                            A商品(100元)<br>
+                            <img alt="" src="/pic/1.jpg">
+                            <input type="number" name="a" size=6 min="0" max="30" title="請輸入有效的數字（0到30之間的整數）" required>
+                        </td>
+                        <td>
+                            B商品(120元)<br>
+                            <img alt="" src="/pic/2.jpg">
+                            <input type="number" name="b" size=6 min="0" max="30" title="請輸入有效的數字（0到30之間的整數）" required>
+                        </td>
+                        <td>
+                            C商品(150元)<br>
+                            <img alt="" src="/pic/3.jpg">
+                            <input type="number" name="c" size=6 min="0" max="30" title="請輸入有效的數字（0到30之間的整數）" required>
+                        </td>
+                    </tr>
+                    <tr height=20>
+                        <td colspan=3 align="center">
+                            <input type="submit" value="送出">    
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div id="footer"></div>
+</body>
+</html>
